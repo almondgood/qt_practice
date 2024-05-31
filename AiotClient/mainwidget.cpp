@@ -6,7 +6,7 @@ MainWidget::MainWidget(QWidget *parent)
     , ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
-    this->resize(610, 450);
+    this->resize(700, 450);
     pTab1DevControl = new Tab1DevControl(ui->pTab1);
     ui->pTab1->setLayout(pTab1DevControl->layout());
 

@@ -263,6 +263,7 @@ DIST          = ../AiotClient/Image/background.jpg \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/qt_config.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_post.prf \
+		../AiotClient/.qmake.stash \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/toolchain.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -477,6 +478,7 @@ Makefile: ../AiotClient/AiotClient.pro /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspe
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/qt_config.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/toolchain.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -665,6 +667,7 @@ Makefile: ../AiotClient/AiotClient.pro /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspe
 /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/qt_config.prf:
 /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/toolchain.prf:
 /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/default_pre.prf:

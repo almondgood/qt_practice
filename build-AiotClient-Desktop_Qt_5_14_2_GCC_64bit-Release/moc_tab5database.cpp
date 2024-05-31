@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../AiotClient/tab5database.h"
+#include "../SensorMan_jwt/tab5database.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

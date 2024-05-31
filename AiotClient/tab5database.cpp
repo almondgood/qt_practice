@@ -176,6 +176,9 @@ void Tab5Database::searchDbSlot()
         }
         ui->pTBSensor->resizeColumnToContents(0);
         ui->pTBSensor->resizeColumnToContents(1);
+        ui->pTBSensor->resizeColumnToContents(2);
+        ui->pTBSensor->resizeColumnToContents(3);
+        ui->pTBSensor->resizeColumnToContents(4);
     }
 }
 void Tab5Database::deleteDbSlot()

@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../AiotClient/tab1devcontrol.h"
+#include "../SensorMan_jwt/tab1devcontrol.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../AiotClient/tab3controlpannel.h"
+#include "../SensorMan_jwt/tab3controlpannel.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
