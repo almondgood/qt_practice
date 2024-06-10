@@ -27,12 +27,14 @@ public:
     QWidget *pTab3;
     QWidget *pTab4;
     QWidget *pTab5;
+    QWidget *pTab6;
+    QWidget *pTab7;
 
     void setupUi(QWidget *MainWidget)
     {
         if (MainWidget->objectName().isEmpty())
             MainWidget->setObjectName(QString::fromUtf8("MainWidget"));
-        MainWidget->resize(384, 317);
+        MainWidget->resize(454, 317);
         verticalLayout = new QVBoxLayout(MainWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         pTabWidget = new QTabWidget(MainWidget);
@@ -52,13 +54,19 @@ public:
         pTab5 = new QWidget();
         pTab5->setObjectName(QString::fromUtf8("pTab5"));
         pTabWidget->addTab(pTab5, QString());
+        pTab6 = new QWidget();
+        pTab6->setObjectName(QString::fromUtf8("pTab6"));
+        pTabWidget->addTab(pTab6, QString());
+        pTab7 = new QWidget();
+        pTab7->setObjectName(QString::fromUtf8("pTab7"));
+        pTabWidget->addTab(pTab7, QString());
 
         verticalLayout->addWidget(pTabWidget);
 
 
         retranslateUi(MainWidget);
 
-        pTabWidget->setCurrentIndex(4);
+        pTabWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(MainWidget);
@@ -72,6 +80,8 @@ public:
         pTabWidget->setTabText(pTabWidget->indexOf(pTab3), QCoreApplication::translate("MainWidget", "Tab 3", nullptr));
         pTabWidget->setTabText(pTabWidget->indexOf(pTab4), QCoreApplication::translate("MainWidget", "Tab 4", nullptr));
         pTabWidget->setTabText(pTabWidget->indexOf(pTab5), QCoreApplication::translate("MainWidget", "Tab 5", nullptr));
+        pTabWidget->setTabText(pTabWidget->indexOf(pTab6), QCoreApplication::translate("MainWidget", "Tab 6", nullptr));
+        pTabWidget->setTabText(pTabWidget->indexOf(pTab7), QCoreApplication::translate("MainWidget", "Tab 7", nullptr));
     } // retranslateUi
 
 };

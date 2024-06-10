@@ -22,13 +22,20 @@ MainWidget::MainWidget(QWidget *parent)
     pTab5Database = new Tab5Database(ui->pTab5);
     ui->pTab5->setLayout(pTab5Database->layout());
 
+    pTab6WebCamera = new Tab6WebCamera(ui->pTab6);
+    ui->pTab6->setLayout(pTab6WebCamera->layout());
+
+    pTab7CamSecurity = new Tab7CamSecurity(ui->pTab7);
+    ui->pTab7->setLayout(pTab7CamSecurity->layout());
+
     connect(pTab2SocketClient, SIGNAL(ledWriteSig(int)), pTab1DevControl->getpDial(), SLOT(setValue(int)));
     connect(pTab3ControlPannel, SIGNAL(socketSendDataSig(QString)), pTab2SocketClient->pSocketClient, SLOT(slotSocketSendData(QString)));
     connect(pTab2SocketClient, SIGNAL(tab3RecvDataSig(QString)), pTab3ControlPannel, SLOT(tab3RecvDataSlot(QString)));
     connect(pTab2SocketClient, SIGNAL(tab4RecvDataSig(QString)), pTab4ChartPlot, SLOT(Tab4RecvDataSlot(QString)));
     connect(pTab2SocketClient, SIGNAL(tab5RecvDataSig(QString)), pTab5Database, SLOT(Tab5RecvDataSlot(QString)));
+    connect(pTab7CamSecurity->pGetCameracapture(), SIGNAL(sigSocketSendData(QString)), pTab2SocketClient->pSocketClient, SLOT(slotSocketSendData(QString)));
 
-    ui->pTabWidget->setCurrentIndex(2);
+    ui->pTabWidget->setCurrentIndex(6);
 }
 
 MainWidget::~MainWidget()

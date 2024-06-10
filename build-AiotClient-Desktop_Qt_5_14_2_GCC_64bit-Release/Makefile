@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WEBENGINEWIDGETS_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_WEBENGINECORE_LIB -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_WEBCHANNEL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../AiotClient -I. -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../AiotClient -I. -isystem /usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -39,8 +39,8 @@ COMPRESS      = gzip -9f
 DISTNAME      = AiotClient1.0.0
 DISTDIR = /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/.tmp/AiotClient1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Charts.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Widgets.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Gui.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Network.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Sql.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib -Wl,-rpath-link,/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib
+LIBS          = $(SUBLIBS) `pkg-config opencv4 --cflags --libs` /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Charts.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5WebEngineWidgets.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5PrintSupport.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Widgets.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5WebEngineCore.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Quick.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Gui.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5QmlModels.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5WebChannel.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Qml.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Network.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Sql.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Positioning.so /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../AiotClient/keyboard.cpp \
+SOURCES       = ../AiotClient/cameracapture.cpp \
+		../AiotClient/keyboard.cpp \
 		../AiotClient/keyled.cpp \
 		../AiotClient/main.cpp \
 		../AiotClient/mainwidget.cpp \
@@ -61,7 +62,10 @@ SOURCES       = ../AiotClient/keyboard.cpp \
 		../AiotClient/tab2socketclient.cpp \
 		../AiotClient/tab3controlpannel.cpp \
 		../AiotClient/tab4chartplot.cpp \
-		../AiotClient/tab5database.cpp qrc_AiotClient.cpp \
+		../AiotClient/tab5database.cpp \
+		../AiotClient/tab6webcamera.cpp \
+		../AiotClient/tab7camsecurity.cpp qrc_AiotClient.cpp \
+		moc_cameracapture.cpp \
 		moc_keyboard.cpp \
 		moc_keyled.cpp \
 		moc_mainwidget.cpp \
@@ -70,8 +74,11 @@ SOURCES       = ../AiotClient/keyboard.cpp \
 		moc_tab2socketclient.cpp \
 		moc_tab3controlpannel.cpp \
 		moc_tab4chartplot.cpp \
-		moc_tab5database.cpp
-OBJECTS       = keyboard.o \
+		moc_tab5database.cpp \
+		moc_tab6webcamera.cpp \
+		moc_tab7camsecurity.cpp
+OBJECTS       = cameracapture.o \
+		keyboard.o \
 		keyled.o \
 		main.o \
 		mainwidget.o \
@@ -81,7 +88,10 @@ OBJECTS       = keyboard.o \
 		tab3controlpannel.o \
 		tab4chartplot.o \
 		tab5database.o \
+		tab6webcamera.o \
+		tab7camsecurity.o \
 		qrc_AiotClient.o \
+		moc_cameracapture.o \
 		moc_keyboard.o \
 		moc_keyled.o \
 		moc_mainwidget.o \
@@ -90,7 +100,9 @@ OBJECTS       = keyboard.o \
 		moc_tab2socketclient.o \
 		moc_tab3controlpannel.o \
 		moc_tab4chartplot.o \
-		moc_tab5database.o
+		moc_tab5database.o \
+		moc_tab6webcamera.o \
+		moc_tab7camsecurity.o
 DIST          = ../AiotClient/Image/background.jpg \
 		../AiotClient/Image/light_off.png \
 		../AiotClient/Image/light_on.png \
@@ -284,7 +296,8 @@ DIST          = ../AiotClient/Image/background.jpg \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/exceptions.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/yacc.prf \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/lex.prf \
-		../AiotClient/AiotClient.pro ../AiotClient/keyboard.h \
+		../AiotClient/AiotClient.pro ../AiotClient/cameracapture.h \
+		../AiotClient/keyboard.h \
 		../AiotClient/keyled.h \
 		../AiotClient/mainwidget.h \
 		../AiotClient/socketclient.h \
@@ -292,7 +305,10 @@ DIST          = ../AiotClient/Image/background.jpg \
 		../AiotClient/tab2socketclient.h \
 		../AiotClient/tab3controlpannel.h \
 		../AiotClient/tab4chartplot.h \
-		../AiotClient/tab5database.h ../AiotClient/keyboard.cpp \
+		../AiotClient/tab5database.h \
+		../AiotClient/tab6webcamera.h \
+		../AiotClient/tab7camsecurity.h ../AiotClient/cameracapture.cpp \
+		../AiotClient/keyboard.cpp \
 		../AiotClient/keyled.cpp \
 		../AiotClient/main.cpp \
 		../AiotClient/mainwidget.cpp \
@@ -301,7 +317,9 @@ DIST          = ../AiotClient/Image/background.jpg \
 		../AiotClient/tab2socketclient.cpp \
 		../AiotClient/tab3controlpannel.cpp \
 		../AiotClient/tab4chartplot.cpp \
-		../AiotClient/tab5database.cpp
+		../AiotClient/tab5database.cpp \
+		../AiotClient/tab6webcamera.cpp \
+		../AiotClient/tab7camsecurity.cpp
 QMAKE_TARGET  = AiotClient
 DESTDIR       = 
 TARGET        = AiotClient
@@ -310,7 +328,7 @@ TARGET        = AiotClient
 first: all
 ####### Build rules
 
-AiotClient: ui_keyboard.h ui_mainwidget.h ui_tab1devcontrol.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4chartplot.h ui_tab5database.h $(OBJECTS)  
+AiotClient: ui_keyboard.h ui_mainwidget.h ui_tab1devcontrol.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4chartplot.h ui_tab5database.h ui_tab6webcamera.h ui_tab7camsecurity.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../AiotClient/AiotClient.pro /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++/qmake.conf /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -706,9 +724,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../AiotClient/AiotClient.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../AiotClient/keyboard.h ../AiotClient/keyled.h ../AiotClient/mainwidget.h ../AiotClient/socketclient.h ../AiotClient/tab1devcontrol.h ../AiotClient/tab2socketclient.h ../AiotClient/tab3controlpannel.h ../AiotClient/tab4chartplot.h ../AiotClient/tab5database.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../AiotClient/keyboard.cpp ../AiotClient/keyled.cpp ../AiotClient/main.cpp ../AiotClient/mainwidget.cpp ../AiotClient/socketclient.cpp ../AiotClient/tab1devcontrol.cpp ../AiotClient/tab2socketclient.cpp ../AiotClient/tab3controlpannel.cpp ../AiotClient/tab4chartplot.cpp ../AiotClient/tab5database.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../AiotClient/keyboard.ui ../AiotClient/mainwidget.ui ../AiotClient/tab1devcontrol.ui ../AiotClient/tab2socketclient.ui ../AiotClient/tab3controlpannel.ui ../AiotClient/tab4chartplot.ui ../AiotClient/tab5database.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../AiotClient/cameracapture.h ../AiotClient/keyboard.h ../AiotClient/keyled.h ../AiotClient/mainwidget.h ../AiotClient/socketclient.h ../AiotClient/tab1devcontrol.h ../AiotClient/tab2socketclient.h ../AiotClient/tab3controlpannel.h ../AiotClient/tab4chartplot.h ../AiotClient/tab5database.h ../AiotClient/tab6webcamera.h ../AiotClient/tab7camsecurity.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../AiotClient/cameracapture.cpp ../AiotClient/keyboard.cpp ../AiotClient/keyled.cpp ../AiotClient/main.cpp ../AiotClient/mainwidget.cpp ../AiotClient/socketclient.cpp ../AiotClient/tab1devcontrol.cpp ../AiotClient/tab2socketclient.cpp ../AiotClient/tab3controlpannel.cpp ../AiotClient/tab4chartplot.cpp ../AiotClient/tab5database.cpp ../AiotClient/tab6webcamera.cpp ../AiotClient/tab7camsecurity.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../AiotClient/keyboard.ui ../AiotClient/mainwidget.ui ../AiotClient/tab1devcontrol.ui ../AiotClient/tab2socketclient.ui ../AiotClient/tab3controlpannel.ui ../AiotClient/tab4chartplot.ui ../AiotClient/tab5database.ui ../AiotClient/tab6webcamera.ui ../AiotClient/tab7camsecurity.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -757,9 +775,130 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++11 -Wall -Wextra -dM -E -o moc_predefs.h /home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_keyboard.cpp moc_keyled.cpp moc_mainwidget.cpp moc_socketclient.cpp moc_tab1devcontrol.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4chartplot.cpp moc_tab5database.cpp
+compiler_moc_header_make_all: moc_cameracapture.cpp moc_keyboard.cpp moc_keyled.cpp moc_mainwidget.cpp moc_socketclient.cpp moc_tab1devcontrol.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4chartplot.cpp moc_tab5database.cpp moc_tab6webcamera.cpp moc_tab7camsecurity.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_keyboard.cpp moc_keyled.cpp moc_mainwidget.cpp moc_socketclient.cpp moc_tab1devcontrol.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4chartplot.cpp moc_tab5database.cpp
+	-$(DEL_FILE) moc_cameracapture.cpp moc_keyboard.cpp moc_keyled.cpp moc_mainwidget.cpp moc_socketclient.cpp moc_tab1devcontrol.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4chartplot.cpp moc_tab5database.cpp moc_tab6webcamera.cpp moc_tab7camsecurity.cpp
+moc_cameracapture.cpp: ../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
+		moc_predefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/cameracapture.h -o moc_cameracapture.cpp
+
 moc_keyboard.cpp: ../AiotClient/keyboard.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
@@ -1100,7 +1239,7 @@ moc_keyboard.cpp: ../AiotClient/keyboard.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/keyboard.h -o moc_keyboard.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/keyboard.h -o moc_keyboard.cpp
 
 moc_keyled.cpp: ../AiotClient/keyled.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1215,7 +1354,7 @@ moc_keyled.cpp: ../AiotClient/keyled.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsocketnotifier.h \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/keyled.h -o moc_keyled.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/keyled.h -o moc_keyled.cpp
 
 moc_mainwidget.cpp: ../AiotClient/mainwidget.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1628,9 +1767,42 @@ moc_mainwidget.cpp: ../AiotClient/mainwidget.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql/QSqlError \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql/qsqlerror.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDateTime \
+		../AiotClient/tab6webcamera.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/QWebEngineView \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QString \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QUrl \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVector \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslConfiguration \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qssl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QFlags \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QMetaType \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qtwebenginewidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginepage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineclientcertificateselection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginedownloaditem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginecallback.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecoreglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginehttprequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QProcess \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../AiotClient/tab7camsecurity.h \
+		../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/mainwidget.h -o moc_mainwidget.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/mainwidget.h -o moc_mainwidget.cpp
 
 moc_socketclient.cpp: ../AiotClient/socketclient.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QTcpSocket \
@@ -1757,7 +1929,7 @@ moc_socketclient.cpp: ../AiotClient/socketclient.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/socketclient.h -o moc_socketclient.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/socketclient.h -o moc_socketclient.cpp
 
 moc_tab1devcontrol.cpp: ../AiotClient/tab1devcontrol.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1881,7 +2053,7 @@ moc_tab1devcontrol.cpp: ../AiotClient/tab1devcontrol.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsocketnotifier.h \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab1devcontrol.h -o moc_tab1devcontrol.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab1devcontrol.h -o moc_tab1devcontrol.cpp
 
 moc_tab2socketclient.cpp: ../AiotClient/tab2socketclient.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -2239,7 +2411,7 @@ moc_tab2socketclient.cpp: ../AiotClient/tab2socketclient.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLineEdit \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab2socketclient.h -o moc_tab2socketclient.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab2socketclient.h -o moc_tab2socketclient.cpp
 
 moc_tab3controlpannel.cpp: ../AiotClient/tab3controlpannel.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -2349,7 +2521,7 @@ moc_tab3controlpannel.cpp: ../AiotClient/tab3controlpannel.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/QPalette \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab3controlpannel.h -o moc_tab3controlpannel.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab3controlpannel.h -o moc_tab3controlpannel.cpp
 
 moc_tab4chartplot.cpp: ../AiotClient/tab4chartplot.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -2500,7 +2672,7 @@ moc_tab4chartplot.cpp: ../AiotClient/tab4chartplot.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTime \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab4chartplot.h -o moc_tab4chartplot.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab4chartplot.h -o moc_tab4chartplot.cpp
 
 moc_tab5database.cpp: ../AiotClient/tab5database.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -2658,15 +2830,291 @@ moc_tab5database.cpp: ../AiotClient/tab5database.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts/qdatetimeaxis.h \
 		moc_predefs.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab5database.h -o moc_tab5database.cpp
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab5database.h -o moc_tab5database.cpp
+
+moc_tab6webcamera.cpp: ../AiotClient/tab6webcamera.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/QWebEngineView \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainter.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpen.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QSharedDataPointer \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QString \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QUrl \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVariant \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVector \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QObject \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslConfiguration \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qssl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QFlags \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QMetaType \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qtwebenginewidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginepage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineclientcertificateselection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginedownloaditem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginecallback.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecoreglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginehttprequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpagelayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpagesize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QProcess \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocess.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		moc_predefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab6webcamera.h -o moc_tab6webcamera.cpp
+
+moc_tab7camsecurity.cpp: ../AiotClient/tab7camsecurity.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
+		moc_predefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /srv/nfs/QtExamples/build-AiotClient-Desktop_Qt_5_14_2_GCC_64bit-Release/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/srv/nfs/QtExamples/AiotClient -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPrintSupport -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQuick -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQmlModels -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebChannel -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtQml -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtPositioning -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../AiotClient/tab7camsecurity.h -o moc_tab7camsecurity.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_keyboard.h ui_mainwidget.h ui_tab1devcontrol.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4chartplot.h ui_tab5database.h
+compiler_uic_make_all: ui_keyboard.h ui_mainwidget.h ui_tab1devcontrol.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4chartplot.h ui_tab5database.h ui_tab6webcamera.h ui_tab7camsecurity.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_keyboard.h ui_mainwidget.h ui_tab1devcontrol.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4chartplot.h ui_tab5database.h
+	-$(DEL_FILE) ui_keyboard.h ui_mainwidget.h ui_tab1devcontrol.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4chartplot.h ui_tab5database.h ui_tab6webcamera.h ui_tab7camsecurity.h
 ui_keyboard.h: ../AiotClient/keyboard.ui \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic
 	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic ../AiotClient/keyboard.ui -o ui_keyboard.h
@@ -2695,6 +3143,14 @@ ui_tab5database.h: ../AiotClient/tab5database.ui \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic
 	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic ../AiotClient/tab5database.ui -o ui_tab5database.h
 
+ui_tab6webcamera.h: ../AiotClient/tab6webcamera.ui \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic ../AiotClient/tab6webcamera.ui -o ui_tab6webcamera.h
+
+ui_tab7camsecurity.h: ../AiotClient/tab7camsecurity.ui \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic
+	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/uic ../AiotClient/tab7camsecurity.ui -o ui_tab7camsecurity.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -2704,6 +3160,125 @@ compiler_lex_clean:
 compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+cameracapture.o: ../AiotClient/cameracapture.cpp ../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cameracapture.o ../AiotClient/cameracapture.cpp
 
 keyboard.o: ../AiotClient/keyboard.cpp ../AiotClient/keyboard.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -3582,6 +4157,39 @@ main.o: ../AiotClient/main.cpp ../AiotClient/mainwidget.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql/QSqlError \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql/qsqlerror.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDateTime \
+		../AiotClient/tab6webcamera.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/QWebEngineView \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QString \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QUrl \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVector \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslConfiguration \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qssl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QFlags \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QMetaType \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qtwebenginewidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginepage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineclientcertificateselection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginedownloaditem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginecallback.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecoreglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginehttprequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QProcess \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../AiotClient/tab7camsecurity.h \
+		../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qapplication.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h
@@ -3998,6 +4606,39 @@ mainwidget.o: ../AiotClient/mainwidget.cpp ../AiotClient/mainwidget.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql/QSqlError \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtSql/qsqlerror.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDateTime \
+		../AiotClient/tab6webcamera.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/QWebEngineView \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QString \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QUrl \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVector \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslConfiguration \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qssl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QFlags \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QMetaType \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qtwebenginewidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginepage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineclientcertificateselection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginedownloaditem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginecallback.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecoreglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginehttprequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QProcess \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../AiotClient/tab7camsecurity.h \
+		../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		../AiotClient/ui_mainwidget.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qapplication.h \
@@ -5169,8 +5810,327 @@ tab5database.o: ../AiotClient/tab5database.cpp ../AiotClient/tab5database.h \
 		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab5database.o ../AiotClient/tab5database.cpp
 
+tab6webcamera.o: ../AiotClient/tab6webcamera.cpp ../AiotClient/tab6webcamera.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/QWebEngineView \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainter.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpen.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QSharedDataPointer \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QString \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QUrl \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVariant \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVector \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QObject \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslConfiguration \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qssl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QFlags \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QMetaType \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qtwebenginewidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginepage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebengineclientcertificateselection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineWidgets/qwebenginedownloaditem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginecallback.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecoreglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qtwebenginecore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWebEngineCore/qwebenginehttprequest.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpagelayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpagesize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QProcess \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocess.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		../AiotClient/ui_tab6webcamera.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qapplication.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qeventloop.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGraphicsView \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgraphicsview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qscrollarea.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab6webcamera.o ../AiotClient/tab6webcamera.cpp
+
+tab7camsecurity.o: ../AiotClient/tab7camsecurity.cpp ../AiotClient/tab7camsecurity.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../AiotClient/cameracapture.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
+		../AiotClient/ui_tab7camsecurity.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVariant \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qapplication.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore/qeventloop.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QCheckBox \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab7camsecurity.o ../AiotClient/tab7camsecurity.cpp
+
 qrc_AiotClient.o: qrc_AiotClient.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_AiotClient.o qrc_AiotClient.cpp
+
+moc_cameracapture.o: moc_cameracapture.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cameracapture.o moc_cameracapture.cpp
 
 moc_keyboard.o: moc_keyboard.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_keyboard.o moc_keyboard.cpp
@@ -5198,6 +6158,12 @@ moc_tab4chartplot.o: moc_tab4chartplot.cpp
 
 moc_tab5database.o: moc_tab5database.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab5database.o moc_tab5database.cpp
+
+moc_tab6webcamera.o: moc_tab6webcamera.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab6webcamera.o moc_tab6webcamera.cpp
+
+moc_tab7camsecurity.o: moc_tab7camsecurity.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab7camsecurity.o moc_tab7camsecurity.cpp
 
 ####### Install
 

@@ -17,9 +17,9 @@ class SocketClient : public QWidget
 
 private:
     QTcpSocket *pQTcpSocket;
-    QString SERVERIP = "10.10.14.50";
+    QString SERVERIP = "10.10.14.35";
     int SERVERPOT = 5000;
-    QString LOGID = "15";
+    QString LOGID = "JWT_QT";
     QString LOGPW = "PASSWD";
 public:
 //    QTcpSocket *pQTcpSocket;
